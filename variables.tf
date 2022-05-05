@@ -1,3 +1,11 @@
+variable "name" {
+  type        = string
+  description = "Name of the vpc to create"
+}
+variable "host" {
+  type        = string
+  description = "mySQL server address"
+}
 variable "context" {
   type = object({
     organization = string

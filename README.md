@@ -106,30 +106,47 @@ Please be aware that this is mainly a copy operation which means all your curren
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >=1.1.6 |
 | <a name="requirement_aws"></a> [aws](#requirement\_aws) | >= 4.8.0 |
+| <a name="requirement_mysql"></a> [mysql](#requirement\_mysql) | >=1.9.0-p8 |
 
 ## Providers
 
-No providers.
+| Name | Version |
+|------|---------|
+| <a name="provider_mysql"></a> [mysql](#provider\_mysql) | >=1.9.0-p8 |
+| <a name="provider_random"></a> [random](#provider\_random) | n/a |
 
 ## Modules
 
-No modules.
+| Name | Source | Version |
+|------|--------|---------|
+| <a name="module_label_name_db"></a> [label\_name\_db](#module\_label\_name\_db) | git::github.com/xoap-io/terraform-aws-misc-label | v0.1.0 |
+| <a name="module_label_name_user"></a> [label\_name\_user](#module\_label\_name\_user) | git::github.com/xoap-io/terraform-aws-misc-label | v0.1.0 |
 
 ## Resources
 
-No resources.
+| Name | Type |
+|------|------|
+| [mysql_database.this](https://registry.terraform.io/providers/winebarrel/mysql/latest/docs/resources/database) | resource |
+| [mysql_grant.this](https://registry.terraform.io/providers/winebarrel/mysql/latest/docs/resources/grant) | resource |
+| [mysql_user.this](https://registry.terraform.io/providers/winebarrel/mysql/latest/docs/resources/user) | resource |
+| [random_password.this](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/password) | resource |
 
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_context"></a> [context](#input\_context) | Default context for naming and tagging purpose | <pre>object({<br>    organization = string<br>    environment  = string<br>    account      = string<br>    product      = string<br>    tags         = map(string)<br>  })</pre> | n/a | yes |
+| <a name="input_host"></a> [host](#input\_host) | mySQL server address | `string` | n/a | yes |
+| <a name="input_name"></a> [name](#input\_name) | Name of the vpc to create | `string` | n/a | yes |
 
 ## Outputs
 
 | Name | Description |
 |------|-------------|
-| <a name="output_context"></a> [context](#output\_context) | Exported context from input variable |
+| <a name="output_database"></a> [database](#output\_database) | Created name of the database |
+| <a name="output_host"></a> [host](#output\_host) | Targeted host for creation |
+| <a name="output_password"></a> [password](#output\_password) | Created password for the user |
+| <a name="output_username"></a> [username](#output\_username) | Created name of the user |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 <!-- markdownlint-disable -->
 <!-- prettier-ignore-end -->
